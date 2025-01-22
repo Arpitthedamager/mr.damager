@@ -42,13 +42,13 @@ const Hero = () => {
         // Fade out elements only on scroll
         gsap.to([headerElement, footerElement, textElement, buttonElement], {
           opacity: 0, // Fade out completely
-          y: 50, // Move slightly upwards
-          duration: 1, // Add duration for smoother animation
+          y: -50, // Move slightly upwards
+          duration: 0.00001, // Add duration for smoother animation
           ease: "power1.inOut", // Optional: Add easing for smoother effect
           scrollTrigger: {
             trigger: containerElement, // Trigger animation based on the Hero section
-            start: "top 80%", // Start fading out when scrolling reaches 80% of the Hero section
-            end: "top top", // Fully fade out when Hero section reaches the top
+            start: "top 10%", // Start fading out when scrolling reaches 80% of the Hero section
+            end: "bottom 0.2%", // Fully fade out when Hero section reaches the top
             scrub: 1, // Smooth transition based on scroll progress
             markers: false, // Optional: Use this to visualize trigger points during debugging
             toggleActions: "play none none none", // Optional: Play animation only on scroll, don't reverse
