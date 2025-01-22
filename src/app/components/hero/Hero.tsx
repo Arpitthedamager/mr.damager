@@ -59,7 +59,7 @@ const Hero = () => {
 
     // Cleanup GSAP ScrollTrigger on component unmount
     return () => {
-      ScrollTrigger.kill();
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, []);
 

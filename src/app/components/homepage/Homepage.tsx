@@ -2,7 +2,7 @@
   import React, { useEffect } from 'react';
   import Hero from '../hero/Hero';
   import About from '@/app/components/about/About';
-  import LocomotiveScroll from 'locomotive-scroll';
+  // import LocomotiveScroll from 'locomotive-scroll';
 
   const Homepage: React.FC = () => {
       useEffect(() => {
