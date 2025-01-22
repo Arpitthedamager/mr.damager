@@ -27,3 +27,7 @@ body {
 .strike-text {
   will-change: transform, opacity;
 }
+.text-stroke {
+  -webkit-text-stroke: 6px transparent; /* Adjust the width and color of the stroke */
+  color: #0a0a0a; /* The text color */
+}

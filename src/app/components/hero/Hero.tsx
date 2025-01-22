@@ -8,7 +8,7 @@ import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Hero = () => {
+const Hero: React.FC = () => {
   const zoomRef = useRef(null);
   const containerRef = useRef(null);
   const headerRef = useRef(null);

@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import Hero from "../hero/Hero";
-// import About from "../about/About";
+import About from "../about/about";
 
 const Homepage: React.FC = () => {
   useEffect(() => {
@@ -27,7 +27,7 @@ const Homepage: React.FC = () => {
   return (
     <>
       <Hero />
-      {/* <About /> */}
+      <About />
     </>
   );
 };
