@@ -1,8 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import Hero from "../hero/Hero";
-import About from "../about/About";
-// import LocomotiveScroll from 'locomotive-scroll';
+// import About from "../about/About";
 
 const Homepage: React.FC = () => {
   useEffect(() => {
@@ -28,7 +27,7 @@ const Homepage: React.FC = () => {
   return (
     <>
       <Hero />
-      <About />
+      {/* <About /> */}
     </>
   );
 };
