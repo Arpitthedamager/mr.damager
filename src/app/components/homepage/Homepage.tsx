@@ -1,7 +1,7 @@
   "use client";
   import React, { useEffect } from 'react';
   import Hero from '../hero/Hero';
-  import About from '@/app/components/about/About';
+  import About from '../about/About';
   // import LocomotiveScroll from 'locomotive-scroll';
 
   const Homepage: React.FC = () => {
