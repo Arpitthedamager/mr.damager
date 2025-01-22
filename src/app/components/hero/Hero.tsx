@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -76,8 +77,13 @@ const Hero = () => {
         {/* Profile Info */}
         <div className="flex items-center space-x-4">
           <div className="relative w-12 h-12">
-            <div className="rounded-full bg-gray-300 w-full h-full"></div>
-            <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
+          <Image 
+        alt="logo(Mr.damagerimage)" 
+        src="/Mr.damager.jpg" 
+        width={200} // Set the width here
+        height={200} // Set the height here
+        className="rounded-full" // Optional: use className for additional styling
+      />            <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
           </div>
           <p className="font-medium text-lg">Mr. Damager (Arpit Kumar)</p>
         </div>

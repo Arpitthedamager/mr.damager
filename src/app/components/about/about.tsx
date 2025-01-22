@@ -38,7 +38,7 @@ const About: React.FC = () => {
 
     gsap.to(nameText[1], {
       y: -150,
-      rotationZ: -20,
+      rotationZ: -10,
       scrollTrigger: {
         trigger: '.about-section',
         start: 'top 30%',
