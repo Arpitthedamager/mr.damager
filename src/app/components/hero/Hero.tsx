@@ -1,12 +1,73 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-export default function HeroSection() {
+gsap.registerPlugin(ScrollTrigger);
+
+const Hero = () => {
+  const zoomRef = useRef(null);
+  const containerRef = useRef(null);
+  const headerRef = useRef(null);
+  const footerRef = useRef(null);
+  const textRef = useRef(null);
+  const buttonRef = useRef(null);
+
+  useEffect(() => {
+    const zoomElement = zoomRef.current;
+    const containerElement = containerRef.current;
+    const headerElement = headerRef.current;
+    const footerElement = footerRef.current;
+    const textElement = textRef.current;
+    const buttonElement = buttonRef.current;
+
+    if (zoomElement && containerElement) {
+      // GSAP ScrollTrigger animation for zoom effect
+      gsap.to(zoomElement, {
+        scale: 2000,
+        duration: 1,
+        scrollTrigger: {
+          trigger: containerElement,
+          start: "top top",
+          end: "bottom top",
+          scrub: 1,
+          pin: true,
+        },
+      });
+    }
+    if (headerElement && footerElement && textElement && buttonElement) {
+        // Animate elements to fade out progressively as the user scrolls
+        gsap.to([headerElement, footerElement, textElement, buttonElement], {
+          opacity: 0, // Fade out completely
+          y: -50, // Move slightly upwards
+          scrollTrigger: {
+            trigger: containerElement, // Trigger animation based on the Hero section
+            start: "top 70%", // Start fading out when scrolling reaches 70% of the Hero section
+            end: "top top", // Fully fade out when Hero section reaches the top
+            scrub: true, // Smooth transition based on scroll progress
+            once: true, // Ensure the animation runs only once
+          },
+        });
+      }
+      
+    // Cleanup GSAP ScrollTrigger on component unmount
+    return () => {
+      ScrollTrigger.kill();
+    };
+  }, []);
+
   return (
-    <div className="relative h-screen bg-gray-100 flex flex-col">
-      {/* Navbar */}
-      <div className="w-full flex items-center justify-between px-6 md:px-16 py-6">
+    <div
+      ref={containerRef}
+      className="relative h-screen flex flex-col overflow-hidden"
+    >
+      {/* Header Section */}
+      <div
+        ref={headerRef}
+        className="w-full flex items-center justify-between px-6 md:px-16 py-6"
+      >
         {/* Profile Info */}
         <div className="flex items-center space-x-4">
           <div className="relative w-12 h-12">
@@ -19,7 +80,7 @@ export default function HeroSection() {
         {/* Location */}
         <p className="text-gray-600 text-lg">Agra, India (2025)</p>
 
-        {/* Let's Talk Button */}
+        {/* Let’s Talk Button */}
         <motion.a
           href="#contact"
           className="px-6 py-2 bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-full shadow-lg font-semibold hover:scale-105 transition"
@@ -29,50 +90,39 @@ export default function HeroSection() {
         </motion.a>
       </div>
 
-      {/* Main Section */}
-      <div className="flex-1 flex flex-col items-center justify-center text-center px-6">
-        <h1 className="text-6xl md:text-8xl font-bold">
-          Webflow{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-pink-500">
+      {/* Hero Section */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+        <motion.h1
+          ref={zoomRef}
+          className="text-6xl md:text-9xl font-bold"
+          style={{ transformOrigin: "center" }}
+        >
+          Web{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
             Developer
           </span>
-        </h1>
-        <p className="mt-4 text-xl text-gray-600">
+        </motion.h1>
+        <p
+          ref={textRef}
+          className="mt-16 text-xl text-gray-600"
+        >
           Crafting seamless websites with creativity and precision.
         </p>
-
-        {/* Animated Text Icons */}
-        <div className="relative mt-12 w-full max-w-screen-md">
-          {/* Example 1: Curly Brace */}
-          <motion.p
-            className="absolute -top-10 left-0 text-3xl text-gray-400 italic transform rotate-[-15deg] cursor-pointer"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 1 }}
-          >
-            {'{'}
-          </motion.p>
-
-          {/* Example 2: Code Tag */}
-          <motion.p
-            className="absolute bottom-0 right-0 text-3xl text-gray-400 italic transform rotate-[15deg] cursor-pointer"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 1.2 }}
-          >
-            {'</>'}
-          </motion.p>
-
-          <p className="text-gray-600 text-lg animate-bounce mt-12">
-            Scroll down...
-          </p>
-        </div>
+        <motion.a
+          ref={buttonRef}
+          href="#about"
+          className="mt-6 px-8 py-3 bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-full shadow-lg font-semibold hover:scale-105 transition"
+          whileHover={{ scale: 1.1 }}
+        >
+          Let’s talk →
+        </motion.a>
       </div>
 
       {/* Footer Section */}
-      <div className="relative w-full flex items-center justify-between px-6 md:px-16 pb-6">
+      <div
+        ref={footerRef}
+        className="relative w-full flex items-center justify-between px-6 md:px-16 pb-6"
+      >
         {/* Play Button */}
         <motion.div
           className="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center cursor-pointer"
@@ -83,4 +133,6 @@ export default function HeroSection() {
       </div>
     </div>
   );
-}
+};
+
+export default Hero;
