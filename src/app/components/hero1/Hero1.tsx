@@ -63,8 +63,8 @@ const Hero1: React.FC = () => {
               Year Experience
             </p>
             <p className="text-sm sm:text-base md:text-lg">
-              With 20 Years Of Experience, We've Earned Hundreds Of Awards And
-              Certificates. We've Earned Hundreds Of Awards.
+              With 20 Years Of Experience, We&apos;ve Earned Hundreds Of Awards And
+              Certificates. We&apos;ve Earned Hundreds Of Awards.
             </p>
           </div>
         </motion.div>

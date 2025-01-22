@@ -54,7 +54,7 @@ const About: React.FC = () => {
             <span>👋 Hi,</span>
           </span>{" "}
           <span className="split-text inline-block">
-            <span>I’m Mr.damager</span>
+            <span>I&apos;m Mr.damager</span>
           </span>{" "}
           <span className="split-text inline-block">
             <span>(Arpit Kumar)</span>
