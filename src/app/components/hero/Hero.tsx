@@ -37,21 +37,26 @@ const Hero = () => {
         },
       });
     }
+
     if (headerElement && footerElement && textElement && buttonElement) {
-        // Animate elements to fade out progressively as the user scrolls
+        // Fade out elements only on scroll
         gsap.to([headerElement, footerElement, textElement, buttonElement], {
           opacity: 0, // Fade out completely
-          y: -50, // Move slightly upwards
+          y: 50, // Move slightly upwards
+          duration: 1, // Add duration for smoother animation
+          ease: "power1.inOut", // Optional: Add easing for smoother effect
           scrollTrigger: {
             trigger: containerElement, // Trigger animation based on the Hero section
-            start: "top 70%", // Start fading out when scrolling reaches 70% of the Hero section
+            start: "top 80%", // Start fading out when scrolling reaches 80% of the Hero section
             end: "top top", // Fully fade out when Hero section reaches the top
-            scrub: true, // Smooth transition based on scroll progress
-            once: true, // Ensure the animation runs only once
+            scrub: 1, // Smooth transition based on scroll progress
+            markers: false, // Optional: Use this to visualize trigger points during debugging
+            toggleActions: "play none none none", // Optional: Play animation only on scroll, don't reverse
           },
         });
       }
       
+
     // Cleanup GSAP ScrollTrigger on component unmount
     return () => {
       ScrollTrigger.kill();
@@ -102,10 +107,7 @@ const Hero = () => {
             Developer
           </span>
         </motion.h1>
-        <p
-          ref={textRef}
-          className="mt-16 text-xl text-gray-600"
-        >
+        <p ref={textRef} className="mt-16 text-xl text-gray-600">
           Crafting seamless websites with creativity and precision.
         </p>
         <motion.a
