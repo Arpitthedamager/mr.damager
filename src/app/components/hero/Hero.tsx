@@ -55,25 +55,28 @@ const Hero: React.FC = () => {
           // Fade-out and fade-in animations for multiple elements
           gsap.fromTo(
             [headerElement, footerElement, textElement, buttonElement],
-            {
-              opacity: 1, // Start visible
-              y: 0, // Start in original position
-            },
+            { opacity: 1, y: 5 }, // Start fully visible
             {
               opacity: 0, // Fade out
-              y: -50, // Move up
+              y: -50, // Move slightly upward
               scrollTrigger: {
                 trigger: containerElement,
-                start: "top 20%",
-                end: "bottom 10%",
-                scrub: 1,
-                toggleActions: "play reverse play reverse", // Ensure reverse effect when scrolling back up
+                start: "top top", // Trigger starts at the top
+                end: "bottom top", // Trigger ends at the bottom
+                scrub: true, // Sync with scroll
+                toggleActions: "play reverse play reverse", // Smooth reverse effect
+                onLeaveBack: () => {
+                  // Explicitly reset styles when scrolling back to the top
+                  gsap.set([headerElement, footerElement, textElement, buttonElement], {
+                    opacity: 1,
+                    y: 0,
+                  });
+                },
               },
             }
           );
         }
       );
-
       // Cleanup GSAP ScrollTrigger and matchMedia
       return () => {
         mm.revert();
