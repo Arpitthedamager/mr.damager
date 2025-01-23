@@ -69,7 +69,7 @@ const Wwr = () => {
               <div className="who-we-are-button-wrap mt-6">
                 <a
                   href="/about"
-                  className="inline-flex items-center bg-gradient-to-r from-green-500 to-teal-500 rounded-3xl text-white px-6 py-3 hover:bg-primary-500 hover:border-2 hover:border-gradient-to-r hover:border-primary-500 transition duration-300"
+                  className="inline-flex items-center bg-gradient-to-r from-green-500 to-teal-500 rounded-3xl text-white px-6 py-3 hover:bg-primary border-2 border-gradient-to-r "
                 >
                   <button className="button font-semibold">
                     Discover More
