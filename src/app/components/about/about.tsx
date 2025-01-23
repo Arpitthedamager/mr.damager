@@ -9,49 +9,50 @@ gsap.registerPlugin(ScrollTrigger);
 const About: React.FC = () => {
   useEffect(() => {
     // Check if the window width is greater than 768px (desktop view)
-    if (window.innerWidth > 768) {
-      // Text animations for marketing excellence
-      const nameText = document.querySelectorAll(".split-text span");
-      
-      gsap.to(nameText[0], {
-        x: -150,
-        y: -100,
-        rotationZ: -45,
-        scrollTrigger: {
-          trigger: ".about-section",
-          start: "top 50%",
-          end: "top",
-          scrub: true,
-        },
-      });
+    // Text animations for marketing excellence
+    const nameText = document.querySelectorAll(".split-text span");
 
-      gsap.to(nameText[1], {
-        y: -150,
-        rotationZ: -10,
-        scrollTrigger: {
-          trigger: ".about-section",
-          start: "top 50%",
-          end: "top",
-          scrub: true,
-        },
-      });
+    gsap.to(nameText[0], {
+      x: -150,
+      y: -100,
+      rotationZ: -45,
+      scrollTrigger: {
+        trigger: ".about-section",
+        start: "top 50%",
+        end: "top",
+        scrub: true,
+      },
+    });
 
-      gsap.to(nameText[2], {
-        x: 150,
-        y: -100,
-        rotationZ: 45,
-        scrollTrigger: {
-          trigger: ".about-section",
-          start: "top 50%",
-          end: "top",
-          scrub: true,
-        },
-      });
-    }
+    gsap.to(nameText[1], {
+      y: -150,
+      rotationZ: -10,
+      scrollTrigger: {
+        trigger: ".about-section",
+        start: "top 50%",
+        end: "top",
+        scrub: true,
+      },
+    });
+
+    gsap.to(nameText[2], {
+      x: 150,
+      y: -100,
+      rotationZ: 45,
+      scrollTrigger: {
+        trigger: ".about-section",
+        start: "top 50%",
+        end: "top",
+        scrub: true,
+      },
+    });
   }, []);
 
   return (
-    <section id="about" className="about-section container h-screen mx-auto text-center">
+    <section
+      id="about"
+      className="about-section container h-screen mx-auto text-center"
+    >
       <div className="text-section">
         <h2 className="text-4xl font-bold mb-8">
           <span className="split-text inline-block">

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Button from "../button/Button";
 
 const Wwr = () => {
   return (
@@ -67,19 +68,26 @@ const Wwr = () => {
                 results.
               </p>
               <div className="who-we-are-button-wrap mt-6">
-                <a
+                <Button
+                  text="Discover More"
                   href="/about"
-                  className="inline-flex items-center bg-gradient-to-r from-green-500 to-teal-500 rounded-3xl text-white px-6 py-3 hover:bg-primary border-2 border-gradient-to-r "
+                  icon="https://cdn.prod.website-files.com/6721e220b6b0484ea27da807/6727128b273f00c151622b3e_button-arrow.png"
+                  hoverColor="#242629" // Dynamic hover color
+                />
+                {/* <a
+                  href="/about" 
+                  className="group inline-flex items-center bg-gradient-to-r px-6 py-3 from-green-500 to-teal-500 rounded-3xl text-white  border-2 border-transparent transition-all duration-300"
                 >
-                  <button className="button font-semibold">
+
+                  <button className="button font-semibold transition-all duration-300">
                     Discover More
                   </button>
                   <img
                     src="https://cdn.prod.website-files.com/6721e220b6b0484ea27da807/6727128b273f00c151622b3e_button-arrow.png"
                     alt="arrow"
                     className="button-icon ml-2 w-4 h-4"
-                  />
-                </a>
+                    />
+                </a> */}
               </div>
             </div>
           </motion.div>

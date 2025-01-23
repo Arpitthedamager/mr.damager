@@ -9,6 +9,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        wwrcolor : '#242629',        
         primary: '#0a0a0a',
         background: "var(--background)",
         foreground: "var(--foreground)",

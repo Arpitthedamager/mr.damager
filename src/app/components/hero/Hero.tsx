@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import Button from "../button/Button";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,27 +41,26 @@ const Hero: React.FC = () => {
     }
 
     if (headerElement && footerElement && textElement && buttonElement) {
-        // Fade out elements only on scroll
-        gsap.to([headerElement, footerElement, textElement, buttonElement], {
-          opacity: 0, // Fade out completely
-          y: -50, // Move slightly upwards
-          duration: 0.00001, // Add duration for smoother animation
-          ease: "power1.inOut", // Optional: Add easing for smoother effect
-          scrollTrigger: {
-            trigger: containerElement, // Trigger animation based on the Hero section
-            start: "top 10%", // Start fading out when scrolling reaches 80% of the Hero section
-            end: "bottom 0.2%", // Fully fade out when Hero section reaches the top
-            scrub: 1, // Smooth transition based on scroll progress
-            markers: false, // Optional: Use this to visualize trigger points during debugging
-            toggleActions: "play none none none", // Optional: Play animation only on scroll, don't reverse
-          },
-        });
-      }
-      
+      // Fade out elements only on scroll
+      gsap.to([headerElement, footerElement, textElement, buttonElement], {
+        opacity: 0, // Fade out completely
+        y: -50, // Move slightly upwards
+        duration: 0.00001, // Add duration for smoother animation
+        ease: "power1.inOut", // Optional: Add easing for smoother effect
+        scrollTrigger: {
+          trigger: containerElement, // Trigger animation based on the Hero section
+          start: "top 10%", // Start fading out when scrolling reaches 80% of the Hero section
+          end: "bottom 0.2%", // Fully fade out when Hero section reaches the top
+          scrub: 1, // Smooth transition based on scroll progress
+          markers: false, // Optional: Use this to visualize trigger points during debugging
+          toggleActions: "play none none none", // Optional: Play animation only on scroll, don't reverse
+        },
+      });
+    }
 
     // Cleanup GSAP ScrollTrigger on component unmount
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 
@@ -77,13 +77,14 @@ const Hero: React.FC = () => {
         {/* Profile Info */}
         <div className="flex items-center space-x-4">
           <div className="relative w-12 h-12">
-          <Image 
-        alt="logo(Mr.damagerimage)" 
-        src="/Mr.damager.jpg" 
-        width={200} // Set the width here
-        height={200} // Set the height here
-        className="rounded-full" // Optional: use className for additional styling
-      />            <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
+            <Image
+              alt="logo(Mr.damagerimage)"
+              src="/Mr.damager.jpg"
+              width={200} // Set the width here
+              height={200} // Set the height here
+              className="rounded-full" // Optional: use className for additional styling
+            />{" "}
+            <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
           </div>
           <p className="font-medium text-lg">Mr. Damager (Arpit Kumar)</p>
         </div>
@@ -91,14 +92,13 @@ const Hero: React.FC = () => {
         {/* Location */}
         <p className="text-gray-600 text-lg">Agra, India (2025)</p>
 
-        {/* Let’s Talk Button */}
-        <motion.a
-          href="#contact"
-          className="px-6 py-2 bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-full shadow-lg font-semibold hover:scale-105 transition"
-          whileHover={{ scale: 1.1 }}
-        >
-          Let’s talk →
-        </motion.a>
+       
+          <Button
+            text="Let’s talk →"
+            href="/contact"
+            className="px-6 py-2"
+            hoverColor="#0a0a0a" // Dynamic hover color
+          />
       </div>
 
       {/* Hero Section */}
@@ -113,17 +113,16 @@ const Hero: React.FC = () => {
             Developer
           </span>
         </motion.h1>
-        <p ref={textRef} className="mt-16 text-xl text-gray-600">
+        <p ref={textRef} className="mt-16 mb-8 text-xl text-gray-600">
           Crafting seamless websites with creativity and precision.
         </p>
-        <motion.a
-          ref={buttonRef}
-          href="#about"
-          className="mt-6 px-8 py-3 bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-full shadow-lg font-semibold hover:scale-105 transition"
-          whileHover={{ scale: 1.1 }}
-        >
-          Let’s talk →
-        </motion.a>
+        <Button
+            text="Let’s talk →"
+            href="/contact"
+            className="px-6 py-2 "
+            hoverColor="#0a0a0a" // Dynamic hover color
+          />
+        
       </div>
 
       {/* Footer Section */}

@@ -27,12 +27,12 @@ const Homepage: React.FC = () => {
   }, []);
   return (
     <>
-    {/* <div className="bg-primery-color"> */}
+      {/* <div className="bg-primery-color"> */}
 
       <Hero />
       <About />
-      <Wwr/>
-    {/* </div> */}
+      <Wwr />
+      {/* </div> */}
     </>
   );
 };
