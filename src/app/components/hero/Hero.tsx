@@ -35,8 +35,9 @@ const Hero: React.FC = () => {
           // Desktop view
           isDesktop: "(min-width: 769px)",
         },
-        (context) => {
-          const { isMobile, isDesktop } = context.conditions;
+        (context: gsap.Context) => {
+          // Check if context.conditions is defined
+          const { isMobile, isDesktop } = context.conditions || {};
 
           // Zoom animation
           gsap.to(zoomElement, {

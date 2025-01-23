@@ -5,7 +5,7 @@ import About from "../about/about";
 import Wwr from "../wwr/Wwr";
 import ServicesSection from "../servicesection/servicesection";
 import FeatureSection from "../feature/Feature";
-import DataAnalize from "../dataanalize/DataAnalize";
+// import DataAnalize from "../dataanalize/DataAnalize";
 
 const Homepage: React.FC = () => {
   useEffect(() => {
