@@ -37,7 +37,7 @@ const Homepage: React.FC = () => {
       <Wwr />
       <ServicesSection/>
       <FeatureSection/>
-      <DataAnalize/>
+      {/* <DataAnalize/> */}
       {/* </div> */}
     </>
   );

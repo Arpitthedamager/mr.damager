@@ -16,7 +16,6 @@ const Hero: React.FC = () => {
   const footerRef = useRef(null);
   const textRef = useRef(null);
   const buttonRef = useRef(null);
-
   useEffect(() => {
     const zoomElement = zoomRef.current;
     const containerElement = containerRef.current;
@@ -24,55 +23,75 @@ const Hero: React.FC = () => {
     const footerElement = footerRef.current;
     const textElement = textRef.current;
     const buttonElement = buttonRef.current;
-
+  
     if (zoomElement && containerElement) {
-      // GSAP ScrollTrigger animation for zoom effect
-      gsap.to(zoomElement, {
-        scale: 2000,
-        duration: 1,
-        scrollTrigger: {
-          trigger: containerElement,
-          start: "top top",
-          end: "bottom top",
-          scrub: 1,
-          pin: true,
+      const mm = gsap.matchMedia();
+  
+      // Define animations for different screen sizes
+      mm.add(
+        {
+          // Mobile view
+          isMobile: "(max-width: 768px)",
+  
+          // Desktop view
+          isDesktop: "(min-width: 769px)",
         },
-      });
+        (context) => {
+          const { isMobile, isDesktop } = context.conditions;
+  
+          // Zoom animation
+          gsap.to(zoomElement, {
+            scale: isMobile ? 40 : isDesktop ? 2000 : 20,
+            duration: 1,
+            scrollTrigger: {
+              trigger: containerElement,
+              start: "top top",
+              end: "bottom top",
+              scrub: 1,
+              pin: true,
+            },
+          });
+  
+          // Fade-out and fade-in animations for multiple elements
+          gsap.to(
+            [headerElement, footerElement, textElement, buttonElement],
+            {
+              opacity: 0, // Fully fade out
+              y: -50, // Move upwards slightly
+              scrollTrigger: {
+                trigger: containerElement,
+                start: "top 20%", // Start fading out at 20% of the Hero section
+                end: "bottom 10%", // Fully faded out near the bottom
+                scrub: 1, // Smooth scroll-based transition
+                toggleActions: "play none reverse none", // Play fade-in when scrolling up
+              },
+            }
+          );
+        }
+      );
+  
+      // Cleanup GSAP ScrollTrigger and matchMedia
+      return () => {
+        mm.revert();
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      };
     }
-
-    if (headerElement && footerElement && textElement && buttonElement) {
-      // Fade out elements only on scroll
-      gsap.to([headerElement, footerElement, textElement, buttonElement], {
-        opacity: 0, // Fade out completely
-        y: -50, // Move slightly upwards
-        duration: 0.00001, // Add duration for smoother animation
-        ease: "power1.inOut", // Optional: Add easing for smoother effect
-        scrollTrigger: {
-          trigger: containerElement, // Trigger animation based on the Hero section
-          start: "top 10%", // Start fading out when scrolling reaches 80% of the Hero section
-          end: "bottom 0.2%", // Fully fade out when Hero section reaches the top
-          scrub: 1, // Smooth transition based on scroll progress
-          markers: false, // Optional: Use this to visualize trigger points during debugging
-          toggleActions: "play none none none", // Optional: Play animation only on scroll, don't reverse
-        },
-      });
-    }
-
-    // Cleanup GSAP ScrollTrigger on component unmount
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
   }, []);
+  
+  
 
   return (
     <div
       ref={containerRef}
-      className="relative h-screen flex flex-col overflow-hidden"
+      className="relative h-screen flex flex-col overflow-hidden  text-white"
     >
       {/* Header Section */}
-      <div
+      <motion.div
         ref={headerRef}
         className="w-full flex items-center justify-between px-6 md:px-16 py-6"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
       >
         {/* Profile Info */}
         <div className="flex items-center space-x-4">
@@ -80,55 +99,73 @@ const Hero: React.FC = () => {
             <Image
               alt="logo(Mr.damagerimage)"
               src="/Mr.damager.jpg"
-              width={200} // Set the width here
-              height={200} // Set the height here
-              className="rounded-full" // Optional: use className for additional styling
-            />{" "}
+              width={48}
+              height={48}
+              className="rounded-full"
+            />
             <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
           </div>
           <p className="font-medium text-lg">Mr. Damager (Arpit Kumar)</p>
         </div>
 
         {/* Location */}
-        <p className="text-gray-600 text-lg">Agra, India (2025)</p>
+        <p className="text-gray-400 text-lg">Agra, India (2025)</p>
 
-       
-          <Button
-            text="Let’s talk →"
-            href="/contact"
-            className="px-6 py-2"
-            hoverColor="#0a0a0a" // Dynamic hover color
-          />
-      </div>
+        {/* Contact Button */}
+        <Button
+          text="Let’s talk →"
+          href="/contact"
+          className="px-6 py-2"
+          hoverColor="#0a0a0a"
+        />
+      </motion.div>
 
       {/* Hero Section */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
         <motion.h1
           ref={zoomRef}
-          className="text-6xl md:text-9xl font-bold"
+          className="text-6xl md:text-9xl font-bold leading-tight"
           style={{ transformOrigin: "center" }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
         >
           Web{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
             Developer
           </span>
         </motion.h1>
-        <p ref={textRef} className="mt-16 mb-8 text-xl text-gray-600">
+        <motion.p
+          ref={textRef}
+          className="mt-8 mb-8 text-lg md:text-xl text-gray-400"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
           Crafting seamless websites with creativity and precision.
-        </p>
-        <Button
+        </motion.p>
+        <motion.div
+        ref={buttonRef}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+        >
+          <Button
             text="Let’s talk →"
             href="/contact"
-            className="px-6 py-2 "
-            hoverColor="#0a0a0a" // Dynamic hover color
+            className="px-6 py-2"
+            hoverColor="#0a0a0a"
           />
-        
+        </motion.div>
       </div>
 
       {/* Footer Section */}
-      <div
+      <motion.div
         ref={footerRef}
-        className="relative w-full flex items-center justify-between px-6 md:px-16 pb-6"
+        className="relative w-full flex items-center justify-between px-6 md:px-16 pb-6 mt-auto"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.9 }}
       >
         {/* Play Button */}
         <motion.div
@@ -137,7 +174,7 @@ const Hero: React.FC = () => {
         >
           Play
         </motion.div>
-      </div>
+      </motion.div>
     </div>
   );
 };
