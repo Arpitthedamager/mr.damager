@@ -55,8 +55,8 @@ const Wwr = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="who-we-are-middle-content-wrap">
-            <div className="text-sm uppercase font-semibold mb-2 bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
-            Who We Are
+              <div className="text-sm uppercase font-semibold mb-2 bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
+                Who We Are
               </div>
               <h2 className="who-we-are-title text-3xl font-bold leading-snug">
                 Passionate About <br />
@@ -74,7 +74,6 @@ const Wwr = () => {
                   icon="https://cdn.prod.website-files.com/6721e220b6b0484ea27da807/6727128b273f00c151622b3e_button-arrow.png"
                   hoverColor="#242629" // Dynamic hover color
                 />
-             
               </div>
             </div>
           </motion.div>

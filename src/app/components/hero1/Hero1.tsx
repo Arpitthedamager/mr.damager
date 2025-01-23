@@ -69,21 +69,37 @@ const Hero1: React.FC = () => {
               />
             </div>
           </div>
-
-          {/* Hero Image */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="relative flex justify-center z-0 w-full "
+            className="relative flex justify-center z-0 w-full bg-cover bg-center"
+           
           >
-            <Image
-              width={500}
-              height={500}
-              src="/hero1/1.png"
-              alt="Hero Image"
-              className="rounded-3xl w-full max-w-md md:max-w-lg lg:max-w-full h-auto object-cover"
-            />
+            <div className="relative group w-full">
+              <Image
+                width={500}
+                height={500}
+                src="/hero1/1.png"
+                alt="Hero Image"
+                className="rounded-3xl w-full max-w-md md:max-w-lg lg:max-w-full h-auto object-cover"
+              />
+              <img
+                width={500}
+                height={500}
+                src="https://cdn.prod.website-files.com/6721e220b6b0484ea27da807/67220ab90f3cb5ff30ebc5a4_hero-gradient.png"
+                alt="Hero Image"
+                className="rounded-3xl absolute w-full max-w-md top-0 opacity-0 group-hover:opacity-100 md:max-w-lg lg:max-w-full h-auto object-cover"
+              />
+
+              <div className="absolute bottom-10 left-0 w-full text-left p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-white z-10 text-xl font-semibold">
+                  Our innovative marketing strategies help businesses grow, and
+                  achieve measurable results. Let us help you amplify your brand
+                  and reach your goals.
+                </p>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
