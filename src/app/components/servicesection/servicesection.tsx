@@ -84,7 +84,7 @@ const ServicesSection: React.FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-16 text-white">
+    <section ref={sectionRef} className="py-28 text-white">
       {" "}
       <div className="container mx-auto px-6">
         {" "}

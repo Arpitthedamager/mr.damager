@@ -4,6 +4,8 @@ import Hero from "../hero/Hero";
 import About from "../about/about";
 import Wwr from "../wwr/Wwr";
 import ServicesSection from "../servicesection/servicesection";
+import FeatureSection from "../feature/Feature";
+import DataAnalize from "../dataanalize/DataAnalize";
 
 const Homepage: React.FC = () => {
   useEffect(() => {
@@ -34,6 +36,8 @@ const Homepage: React.FC = () => {
       <About />
       <Wwr />
       <ServicesSection/>
+      <FeatureSection/>
+      <DataAnalize/>
       {/* </div> */}
     </>
   );
