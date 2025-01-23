@@ -61,7 +61,7 @@ const Hero: React.FC = () => {
               y: -50, // Move slightly upward
               scrollTrigger: {
                 trigger: containerElement,
-                start: "top top", // Trigger starts at the top
+                start: "top 20%", // Trigger starts at the top
                 end: "bottom top", // Trigger ends at the bottom
                 scrub: true, // Sync with scroll
                 toggleActions: "play reverse play reverse", // Smooth reverse effect
