@@ -16,6 +16,7 @@ const Hero: React.FC = () => {
   const footerRef = useRef(null);
   const textRef = useRef(null);
   const buttonRef = useRef(null);
+
   useEffect(() => {
     const zoomElement = zoomRef.current;
     const containerElement = containerRef.current;
@@ -23,22 +24,20 @@ const Hero: React.FC = () => {
     const footerElement = footerRef.current;
     const textElement = textRef.current;
     const buttonElement = buttonRef.current;
-  
+
     if (zoomElement && containerElement) {
       const mm = gsap.matchMedia();
-  
-      // Define animations for different screen sizes
+
       mm.add(
         {
           // Mobile view
           isMobile: "(max-width: 768px)",
-  
           // Desktop view
           isDesktop: "(min-width: 769px)",
         },
         (context) => {
           const { isMobile, isDesktop } = context.conditions;
-  
+
           // Zoom animation
           gsap.to(zoomElement, {
             scale: isMobile ? 40 : isDesktop ? 2000 : 20,
@@ -51,25 +50,29 @@ const Hero: React.FC = () => {
               pin: true,
             },
           });
-  
+
           // Fade-out and fade-in animations for multiple elements
-          gsap.to(
+          gsap.fromTo(
             [headerElement, footerElement, textElement, buttonElement],
             {
-              opacity: 0, // Fully fade out
-              y: -50, // Move upwards slightly
+              opacity: 1, // Start visible
+              y: 0, // Start in original position
+            },
+            {
+              opacity: 0, // Fade out
+              y: -50, // Move up
               scrollTrigger: {
                 trigger: containerElement,
-                start: "top 20%", // Start fading out at 20% of the Hero section
-                end: "bottom 10%", // Fully faded out near the bottom
-                scrub: 1, // Smooth scroll-based transition
-                toggleActions: "play none reverse none", // Play fade-in when scrolling up
+                start: "top 20%",
+                end: "bottom 10%",
+                scrub: 1,
+                toggleActions: "play reverse play reverse", // Ensure reverse effect when scrolling back up
               },
             }
           );
         }
       );
-  
+
       // Cleanup GSAP ScrollTrigger and matchMedia
       return () => {
         mm.revert();
@@ -77,13 +80,11 @@ const Hero: React.FC = () => {
       };
     }
   }, []);
-  
-  
 
   return (
     <div
       ref={containerRef}
-      className="relative h-screen flex flex-col overflow-hidden  text-white"
+      className="relative h-screen flex flex-col overflow-hidden text-white"
     >
       {/* Header Section */}
       <motion.div
@@ -145,7 +146,7 @@ const Hero: React.FC = () => {
           Crafting seamless websites with creativity and precision.
         </motion.p>
         <motion.div
-        ref={buttonRef}
+          ref={buttonRef}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
