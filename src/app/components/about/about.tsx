@@ -51,9 +51,9 @@ const About: React.FC = () => {
   return (
     <section
       id="about"
-      className="about-section container h-screen mx-auto text-center"
+      className="about-section container pt-40 pb-20 overflow-hidden mx-auto text-center"
     >
-      <div className="text-section">
+      <div className="text-section ">
         <h2 className="text-4xl font-bold mb-8">
           <span className="split-text inline-block">
             <span>👋 Hi,</span>
