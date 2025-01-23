@@ -58,7 +58,7 @@ const ServicesSection: React.FC = () => {
       const cards = section.querySelectorAll('.service-card');
       gsap.fromTo(
         cards,
-        { opacity: 0, y: 50 },
+        { opacity: 0, y: 0 },
         {
           opacity: 1,
           y: 0,
@@ -90,11 +90,13 @@ const ServicesSection: React.FC = () => {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <motion.div
+            className="service-card p-6  rounded-3xl  overflow-hidden group"
+
               key={index}
-              className="service-card relative p-6 bg-wwrcolor rounded-lg shadow-lg overflow-hidden group"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
-            >
+              >
+              <img src='https://cdn.prod.website-files.com/6721e220b6b0484ea27da807/67222d3fa316129ee25bf031_blackbg.png' alt='service' className=' relative   ' />
               {/* Hover Image */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <img
