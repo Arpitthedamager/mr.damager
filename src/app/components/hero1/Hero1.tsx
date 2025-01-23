@@ -35,26 +35,12 @@ const Hero1: React.FC = () => {
 
       <div className="hero-section relative rounded-lg max-w-6xl mx-auto flex flex-col lg:flex-row items-center lg:items-start lg:space-x-10">
         {/* Rotating Badge */}
-        <div className="absolute -top-10 right-10 z-10 hidden lg:block">
-          <div className="relative flex justify-center items-center">
-            <img
-              src="https://cdn.prod.website-files.com/6721e220b6b0484ea27da807/674e9d6f5f091e516b57c5da_Group%201171275426.png"
-              alt="Badge Outer"
-              className="badge-outer w-20 sm:w-24 md:w-32"
-            />
-            <img
-              src="/Mr.damager.png"
-              alt="Badge Inner"
-              className="absolute ml-4 sm:ml-6 inset-0 w-8 sm:w-12 md:w-16 rounded-full"
-            />
-          </div>
-        </div>
 
         {/* Tilted Div */}
         <motion.div
-          className="relative text-left h-auto w-full lg:w-1/2 mb-10 lg:mb-0"
+          className="relative text-left md:my-16 h-auto w-full lg:w-1/2 mb-10 lg:mb-0"
         >
-          <div className="absolute -z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-[8deg] w-full h-full max-w-sm bg-gradient-to-r from-green-500 to-teal-500 rounded-3xl"></div>
+          <div className="absolute -z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-[9deg] w-full h-full  bg-gradient-to-r from-green-500 to-teal-500 rounded-3xl"></div>
 
           {/* Inner Black Box */}
           <div className="relative inset-1 bg-slate-900 text-white p-6 sm:p-8 rounded-3xl">
@@ -68,22 +54,39 @@ const Hero1: React.FC = () => {
             </p>
           </div>
         </motion.div>
+        <div className="relative w-full h-full">
+
+        <div className="absolute -top-10 right-10 z-10 block">
+          <div className="relative flex justify-center items-center">
+            <img
+              src="https://cdn.prod.website-files.com/6721e220b6b0484ea27da807/674e9d6f5f091e516b57c5da_Group%201171275426.png"
+              alt="Badge Outer"
+              className="badge-outer w-20 sm:w-24 md:w-32"
+              />
+            <img
+              src="/Mr.damager.png"
+              alt="Badge Inner"
+              className="absolute ml-5 mt-5 sm:ml-8 md:mt-8 inset-0 w-10 sm:w-12 md:w-16 rounded-full"
+              />
+          </div>
+        </div>
 
         {/* Hero Image */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative flex justify-center z-0 w-full lg:w-1/2"
-        >
+          className="relative flex justify-center z-0 w-full "
+          >
           <Image
             width={500}
             height={500}
             src="/hero1/1.png"
             alt="Hero Image"
             className="rounded-3xl w-full max-w-md md:max-w-lg lg:max-w-full h-auto object-cover"
-          />
+            />
         </motion.div>
+            </div>
       </div>
     </div>
   );

@@ -8,42 +8,46 @@ gsap.registerPlugin(ScrollTrigger);
 
 const About: React.FC = () => {
   useEffect(() => {
-    // Text animations for marketing excellence
-    const nameText = document.querySelectorAll(".split-text span");
-    gsap.to(nameText[0], {
-      x: -150,
-      y: -100,
-      rotationZ: -45,
-      scrollTrigger: {
-        trigger: ".about-section",
-        start: "top 30%",
-        end: "top 10%",
-        scrub: true,
-      },
-    });
+    // Check if the window width is greater than 768px (desktop view)
+    if (window.innerWidth > 768) {
+      // Text animations for marketing excellence
+      const nameText = document.querySelectorAll(".split-text span");
+      
+      gsap.to(nameText[0], {
+        x: -150,
+        y: -100,
+        rotationZ: -45,
+        scrollTrigger: {
+          trigger: ".about-section",
+          start: "top 50%",
+          end: "top",
+          scrub: true,
+        },
+      });
 
-    gsap.to(nameText[1], {
-      y: -150,
-      rotationZ: -10,
-      scrollTrigger: {
-        trigger: ".about-section",
-        start: "top 30%",
-        end: "top 10%",
-        scrub: true,
-      },
-    });
+      gsap.to(nameText[1], {
+        y: -150,
+        rotationZ: -10,
+        scrollTrigger: {
+          trigger: ".about-section",
+          start: "top 50%",
+          end: "top",
+          scrub: true,
+        },
+      });
 
-    gsap.to(nameText[2], {
-      x: 150,
-      y: -100,
-      rotationZ: 45,
-      scrollTrigger: {
-        trigger: ".about-section",
-        start: "top 30%",
-        end: "top 10%",
-        scrub: true,
-      },
-    });
+      gsap.to(nameText[2], {
+        x: 150,
+        y: -100,
+        rotationZ: 45,
+        scrollTrigger: {
+          trigger: ".about-section",
+          start: "top 50%",
+          end: "top",
+          scrub: true,
+        },
+      });
+    }
   }, []);
 
   return (
@@ -63,7 +67,7 @@ const About: React.FC = () => {
 
         {/* Hero Section */}
       </div>
-       <Hero1/>
+      <Hero1 />
     </section>
   );
 };

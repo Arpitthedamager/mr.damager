@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import Hero from "../hero/Hero";
 import About from "../about/about";
+import Wwr from "../wwr/Wwr";
 
 const Homepage: React.FC = () => {
   useEffect(() => {
@@ -26,8 +27,12 @@ const Homepage: React.FC = () => {
   }, []);
   return (
     <>
+    {/* <div className="bg-primery-color"> */}
+
       <Hero />
       <About />
+      <Wwr/>
+    {/* </div> */}
     </>
   );
 };
