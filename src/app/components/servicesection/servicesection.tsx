@@ -84,42 +84,76 @@ const ServicesSection: React.FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-16 text-white ">
+    <section ref={sectionRef} className="py-16 text-white">
+      {" "}
       <div className="container mx-auto px-6">
-        {/* Section Title */}
-        <div className="flex flex-col md:flex-row mb-12  text-center md:text-start justify-between">
+        {" "}
+        {/* Section Title */}{" "}
+        <motion.div
+          className="flex flex-col md:flex-row mb-12 text-center md:text-start justify-between"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          
+        >
+          {" "}
           <div className="mb-6 md:mb-0 flex-col">
-            <div className="text-xl font-semibold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
-              Our Services
-            </div>
-            <h2 className="text-xl md:text-5xl font-bold">
-              Our Services Are Business-Shaped Solutions
-            </h2>
-          </div>
-          <div className="flex items-center justify-center md:mt-6 md:justify-start">
+            {" "}
+            <motion.div
+              className="text-xl font-semibold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              {" "}
+              Our Services{" "}
+            </motion.div>{" "}
+            <motion.h2
+              className="text-xl md:text-5xl font-bold"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              {" "}
+              Our Services Are Business-Shaped Solutions{" "}
+            </motion.h2>{" "}
+          </div>{" "}
+          <motion.div
+            className="flex items-center justify-center md:mt-6 md:justify-start"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            {" "}
             <Button
               text="Discover More"
               href="/about"
               icon="https://cdn.prod.website-files.com/6721e220b6b0484ea27da807/6727128b273f00c151622b3e_button-arrow.png"
               hoverColor="#0a0a0a"
-            />
-          </div>
-        </div>
-
+            />{" "}
+          </motion.div>{" "}
+        </motion.div>
         {/* Services Grid */}
-        <div className="grid gap-2 md:gap-8  grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-2 md:gap-8 grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <motion.div
               className="service-card relative overflow-hidden group"
               key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+              viewport={{ once: true }}
               whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
             >
               {/* Background Image */}
               <img
                 src="https://cdn.prod.website-files.com/6721e220b6b0484ea27da807/67222d3fa316129ee25bf031_blackbg.png"
                 alt={service.title}
-                className="absolute inset-0 w-full h-full "
+                className="absolute inset-0 w-full h-full"
               />
 
               {/* Hover Image */}
@@ -127,26 +161,37 @@ const ServicesSection: React.FC = () => {
                 <img
                   src={service.hoverImage}
                   alt={service.hoverTitle}
-                  className="w-full h-full "
+                  className="w-full h-full"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-20"></div>
               </div>
 
               {/* Content */}
               <div className="relative z-10 p-6 flex flex-col justify-between h-full group-hover:opacity-0 transition-opacity duration-300">
-                <div className="flex items-center justify-center w-16 h-16 mb-4 bg-gradient-to-r from-green-400 to-blue-500 rounded-3xl">
+                <motion.div
+                  className="flex items-center justify-center w-16 h-16 mb-4 bg-gradient-to-r from-green-400 to-blue-500 rounded-3xl"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
+                >
                   <img
                     src={service.frontIcon}
                     alt={service.title}
                     className="w-10 h-10"
                   />
-                </div>
-                <div>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
+                >
                   <h3 className="text-lg font-semibold mb-2">
                     {service.title}
                   </h3>
                   <p className="text-gray-400 text-sm">{service.description}</p>
-                </div>
+                </motion.div>
                 <a
                   href={service.link}
                   className="inline-flex items-center mt-4 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-green-400 transition-colors"
@@ -165,13 +210,7 @@ const ServicesSection: React.FC = () => {
               <div className="absolute bottom-0 right-5 z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-green-400 to-blue-500 rounded-full">
                   <Link href={service.link}>
-                    <p
-                      // src="https://cdn.prod.website-files.com/6721e220b6b0484ea27da807/672224a6102865735013bbc7_service-arrow-icon.png"
-                      // alt={service.title}
-                      className="text-3xl tect-center"
-                    >
-                      ↗
-                    </p>
+                    <p className="text-3xl text-center">↗</p>
                   </Link>
                 </div>
               </div>

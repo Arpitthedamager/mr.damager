@@ -99,11 +99,17 @@ const Hero1: React.FC = () => {
               />
 
               <div className="absolute bottom-10 left-0 w-full text-left p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p className="text-white z-10 text-xl font-semibold">
+                <motion.p
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
+                  className="text-white z-10 text-xl font-semibold"
+                >
                   Our innovative marketing strategies help businesses grow, and
                   achieve measurable results. Let us help you amplify your brand
                   and reach your goals.
-                </p>
+                </motion.p>
               </div>
             </div>
           </motion.div>
