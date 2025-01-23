@@ -4,7 +4,7 @@ import Button from "../button/Button";
 const Wwr = () => {
   return (
     <div className="who-we-are--section wwrcolor py-24">
-      <div className="container mx-auto px-4 md:px-12">
+      <div className="container mx-auto px-8 md:px-12">
         <div className="who-layout grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left Card */}
           <motion.div
@@ -21,7 +21,7 @@ const Wwr = () => {
                   className="who-we-are-image w-full rounded-lg"
                 />
               </div>
-              <div className="client-wrap flex  -space-x-4 mt-4">
+              <div className="client-wrap justify-center md:justify-normal flex -space-x-4 mt-4">
                 <img
                   src="https://cdn.prod.website-files.com/6721e220b6b0484ea27da807/674da4b7e3965221b49e82fb_client-one.png"
                   alt="client"
@@ -37,11 +37,11 @@ const Wwr = () => {
                   alt="client"
                   className="client-image-two w-16 h-16 rounded-full"
                 />
-                <div className="client-image w-16 h-16 rounded-full border border-white  bg-gradient-to-r from-green-500 to-teal-500 flex items-center justify-center">
+                <div className="client-image w-16 h-16 rounded-full border border-white  bg-gradient-to-r from-green-500 to-blue-500 flex items-center justify-center">
                   <p className="text-5xl">+</p>
                 </div>
               </div>
-              <h3 className="text-4xl font-semibold mt-4">
+              <h3 className="text-2xl text-center md:text-4xl  font-semibold mt-4">
                 40k+ Happy Clients
               </h3>
             </div>
@@ -55,14 +55,14 @@ const Wwr = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="who-we-are-middle-content-wrap">
-              <div className="tiny-button text-sm  uppercase font-semibold  mb-2">
-                Who We Are
+            <div className="text-sm uppercase font-semibold mb-2 bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
+            Who We Are
               </div>
               <h2 className="who-we-are-title text-3xl font-bold leading-snug">
                 Passionate About <br />
                 Growth
               </h2>
-              <p className="who-we-are--text text-gray-600 mt-4">
+              <p className="who-we-are--text text-gray-500 mt-4">
                 We are a passionate team of marketing committed to helping
                 businesses thrive. With a focus on innovation, strategy, and
                 results.
@@ -74,27 +74,13 @@ const Wwr = () => {
                   icon="https://cdn.prod.website-files.com/6721e220b6b0484ea27da807/6727128b273f00c151622b3e_button-arrow.png"
                   hoverColor="#242629" // Dynamic hover color
                 />
-                {/* <a
-                  href="/about" 
-                  className="group inline-flex items-center bg-gradient-to-r px-6 py-3 from-green-500 to-teal-500 rounded-3xl text-white  border-2 border-transparent transition-all duration-300"
-                >
-
-                  <button className="button font-semibold transition-all duration-300">
-                    Discover More
-                  </button>
-                  <img
-                    src="https://cdn.prod.website-files.com/6721e220b6b0484ea27da807/6727128b273f00c151622b3e_button-arrow.png"
-                    alt="arrow"
-                    className="button-icon ml-2 w-4 h-4"
-                    />
-                </a> */}
+             
               </div>
             </div>
           </motion.div>
 
-          {/* Right Card */}
           <motion.div
-            className="who-we-are-last-card"
+            className="hidden lg:block"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}

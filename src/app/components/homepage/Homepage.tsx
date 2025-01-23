@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import Hero from "../hero/Hero";
 import About from "../about/about";
 import Wwr from "../wwr/Wwr";
+import ServicesSection from "../servicesection/servicesection";
 
 const Homepage: React.FC = () => {
   useEffect(() => {
@@ -32,6 +33,7 @@ const Homepage: React.FC = () => {
       <Hero />
       <About />
       <Wwr />
+      <ServicesSection/>
       {/* </div> */}
     </>
   );

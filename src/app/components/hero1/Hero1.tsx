@@ -24,7 +24,7 @@ const Hero1: React.FC = () => {
         transition={{ duration: 0.8 }}
         className="text-center my-10 md:my-20"
       >
-        <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-7xl font-bold leading-tight">
+        <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-7xl py-10 md:py-0 font-bold leading-tight">
           Your Path To{" "}
           <span className="bg-clip-text text-stroke bg-gradient-to-r from-green-400 to-blue-500">
             Marketing
@@ -37,11 +37,11 @@ const Hero1: React.FC = () => {
         {/* Rotating Badge */}
 
         {/* Tilted Div */}
-        <motion.div className="relative text-left md:my-16 h-auto w-full lg:w-1/2 mb-10 lg:mb-0">
+        <motion.div className="relative text-left md:my-16 h-auto w-full lg:w-1/2 mb-20 lg:mb-0">
           <div className="absolute -z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-[9deg] w-full h-full  bg-gradient-to-r from-green-500 to-teal-500 rounded-3xl"></div>
 
           {/* Inner Black Box */}
-          <div className="relative inset-1 bg-slate-900 text-white p-6 sm:p-8 rounded-3xl">
+          <div className="relative inset-1 bg-slate-900 text-white p-6  sm:p-8 rounded-3xl">
             <h3 className="text-3xl sm:text-4xl md:text-6xl py-2 font-bold">
               20+
             </h3>
