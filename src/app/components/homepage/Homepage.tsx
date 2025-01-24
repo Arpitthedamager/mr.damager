@@ -6,6 +6,7 @@ import Wwr from "../wwr/Wwr";
 import ServicesSection from "../servicesection/servicesection";
 import FeatureSection from "../feature/Feature";
 import PriceCard from "../pricecard/PriceCard";
+import WhyChooseUs from "../whychooseus/WhyChooseUs";
 // import DataAnalize from "../dataanalize/DataAnalize";
 
 const Homepage: React.FC = () => {
@@ -39,6 +40,7 @@ const Homepage: React.FC = () => {
       <ServicesSection/>
       <FeatureSection/>
       <PriceCard/>
+      <WhyChooseUs/>
       {/* <DataAnalize/> */}
       {/* </div> */}
     </>
