@@ -59,7 +59,7 @@ const PriceCard = () => {
             className={`px-6 py-2 rounded-3xl font-semibold transition-all duration-300 ${
               billingCycle === "monthly"
                 ? "bg-gradient-to-r from-green-400 to-blue-500 text-white"
-                : "bg-gray-800  text-gray-300 hover:bg-gray-700"
+                : "bg-gray-800 text-gray-300 hover:bg-gray-700"
             }`}
           >
             Monthly
@@ -82,57 +82,70 @@ const PriceCard = () => {
         {plans.map((plan, index) => (
           <motion.div
             key={index}
-            className={`price-card p-8 rounded-3xl shadow-lg ${
-                index === 1
-                  ? "inset-0 border-8 border-gradient-to-b from-green-400 to-blue-500"
-                  : "border-0 border-gray-700"
-              } bg-wwrcolor text-center`}
-            
+            className={`price-card relative rounded-3xl shadow-lg ${
+              index === 1 ? "p-[2px]" : "bg-wwrcolor"
+            }`}
+            style={
+              index === 1
+                ? {
+                    background: "linear-gradient(to right, #34D399, #3B82F6)",
+                  }
+                : {}
+            }
             whileHover={{ scale: 1.05 }}
           >
-            {/* Icon and Title */}
-            <div className="flex items-center justify-between mb-6">
-              <div
-                className="w-12 h-12 flex items-center justify-center rounded-full text-2xl font-bold bg-gradient-to-r from-green-400 to-blue-500 "
-              >
-                {plan.title === "Starter" && <span>■</span>}
-                {plan.title === "Standard" && <span>●</span>}
-                {plan.title === "Premium" && <span>▲</span>}
+            {/* Card Content */}
+            <div
+              className={`relative z-10 bg-wwrcolor  rounded-3xl p-8 ${
+                index === 1 ? "border-0" : "border border-gray-700"
+              }`}
+            >
+              {/* Icon and Title */}
+              <div className="flex items-center justify-between mb-6">
+                <div className="w-12 h-12 flex items-center justify-center rounded-full text-4xl font-bold bg-gradient-to-r from-green-400 to-blue-500">
+                  {plan.title === "Starter" && <span>■</span>}
+                  {plan.title === "Standard" && <span>●</span>}
+                  {plan.title === "Premium" && <span>▲</span>}
+                </div>
+                <p className="px-4 py-1 bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-3xl font-medium text-lg">
+                  {plan.title}
+                </p>
               </div>
-              <p className="px-4 py-1 bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-3xl font-medium text-lg">
-                {plan.title}
+
+              {/* Pricing */}
+              <h3 className="text-5xl text-left font-bold mb-2">
+                {billingCycle === "monthly"
+                  ? plan.monthlyPrice
+                  : plan.annualPrice}
+                <span className="text-base font-normal">/month</span>
+              </h3>
+
+              {/* Plan Features Header */}
+              <h4 className="text-xl text-left font-semibold mt-4 mb-2">
+                Plan Features
+              </h4>
+              <p className="text-gray-400 text-left mb-6">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </p>
+
+              {/* Features List */}
+              <ul className="mb-6 space-y-4 text-left">
+                {plan.features.map((feature, i) => (
+                  <li key={i} className="text-sm flex items-center space-x-2">
+                    <span className="text-green-400">✔</span>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Discover More Button */}
+              <Button
+                text="Discover More"
+                href="/about"
+                icon="https://cdn.prod.website-files.com/6721e220b6b0484ea27da807/6727128b273f00c151622b3e_button-arrow.png"
+                hoverColor="#242629"
+              />
             </div>
-
-            {/* Pricing */}
-            <h3 className="text-5xl text-left font-bold mb-2">
-              {billingCycle === "monthly" ? plan.monthlyPrice : plan.annualPrice}
-              <span className="text-base font-normal">/month</span>
-            </h3>
-
-            {/* Plan Features Header */}
-            <h4 className="text-xl text-left font-semibold mt-4 mb-2">Plan Features</h4>
-            <p className="text-gray-400 text-left mb-6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-
-            {/* Features List */}
-            <ul className="mb-6 space-y-4 text-left">
-              {plan.features.map((feature, i) => (
-                <li key={i} className="text-sm flex items-center space-x-2">
-                  <span className="text-green-400">✔</span>
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
-
-            {/* Discover More Button */}
-            <Button
-              text="Discover More"
-              href="/about"
-              icon="https://cdn.prod.website-files.com/6721e220b6b0484ea27da807/6727128b273f00c151622b3e_button-arrow.png"
-              hoverColor="#242629"
-            />
           </motion.div>
         ))}
       </div>
