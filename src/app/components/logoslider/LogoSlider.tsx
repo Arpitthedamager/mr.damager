@@ -42,7 +42,7 @@ const LogoSlider: React.FC = () => {
             key={index}
             src={logo}
             alt={`logo-${index}`}
-            className="slider-logo w-40 h-auto object-contain"
+            className="slider-logo w-56 h-auto object-contain"
           />
         ))}
         {logos.concat(logos).map((logo, index) => (
@@ -50,7 +50,7 @@ const LogoSlider: React.FC = () => {
             key={index}
             src={logo}
             alt={`logo-${index}`}
-            className="slider-logo w-40 h-auto object-contain"
+            className="slider-logo w-56 h-auto object-contain"
           />
         ))}
       </div>
