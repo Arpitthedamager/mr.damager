@@ -55,7 +55,7 @@ const Hero: React.FC = () => {
           // Fade-out and fade-in animations for multiple elements
           gsap.fromTo(
             [headerElement, footerElement, textElement, buttonElement],
-            { opacity: 1, y: 5 }, // Start fully visible
+            { opacity: 100, y: 100 }, // Start fully visible
             {
               opacity: 0, // Fade out
               y: -50, // Move slightly upward
