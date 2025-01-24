@@ -8,6 +8,8 @@ import FeatureSection from "../feature/Feature";
 import PriceCard from "../pricecard/PriceCard";
 import WhyChooseUs from "../whychooseus/WhyChooseUs";
 import LogoSlider from "../logoslider/LogoSlider";
+import VideoSection from "../videosection/VideoSection";
+import TeamSection from "../teamsection/TeamSection";
 // import DataAnalize from "../dataanalize/DataAnalize";
 
 const Homepage: React.FC = () => {
@@ -43,6 +45,8 @@ const Homepage: React.FC = () => {
       <PriceCard/>
       <WhyChooseUs/>
       <LogoSlider/>
+      <VideoSection/>
+      <TeamSection/>
       {/* <DataAnalize/> */}
       {/* </div> */}
     </>
