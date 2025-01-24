@@ -16,6 +16,12 @@ const WhyChooseUs = () => {
         stagger: 0.2,
         duration: 1,
         ease: "power2.out",
+        scrollTrigger: {
+          trigger: rightCardsRef.current,
+          start: "top center",
+          end: "bottom center",
+          scrub: true,
+        },
       });
     }
   }, []);
@@ -29,15 +35,17 @@ const WhyChooseUs = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="w-full md:w-1/2 top-0 sticky "
+            className="w-full md:w-1/2 sticky top-16 self-start"
           >
             <div className="text-center md:text-left">
-            <div className="inline-block px-4 py-2 mb-6 text-sm font-bold tracking-wider uppercase bg-gradient-to-r from-green-400 to-blue-500 rounded-full">
-            Why Choose Us
+              <div className="inline-block px-4 py-2 mb-6 text-sm font-bold tracking-wider uppercase bg-gradient-to-r from-green-400 to-blue-500 rounded-full">
+                Why Choose Us
               </div>
               <h2 className="text-5xl font-bold mb-6">Why work with us?</h2>
               <p className="text-gray-500 mb-6 text-xl">
-              We deliver results through innovative strategies, transparent communication, and a client-focused approach tailored to your business success
+                We deliver results through innovative strategies, transparent
+                communication, and a client-focused approach tailored to your
+                business success.
               </p>
               <img
                 src="https://cdn.prod.website-files.com/6721e220b6b0484ea27da807/6763bb0fea6538644281e363_choose%20image%20(1).png"
@@ -48,13 +56,7 @@ const WhyChooseUs = () => {
           </motion.div>
 
           {/* Right Cards */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="w-full md:w-1/2"
-            ref={rightCardsRef}
-          >
+          <div className="w-full md:w-1/2" ref={rightCardsRef}>
             <div className="grid grid-cols-1 gap-6">
               {[
                 {
@@ -88,16 +90,20 @@ const WhyChooseUs = () => {
                     "Leverage actionable insights and in-depth analytics to implement strategies that boost efficiency, improve performance, and drive measurable outcomes.",
                 },
               ].map((card, index) => (
-                <div
+                <motion.div
                   key={index}
                   className="choose-us-right-card bg-wwrcolor shadow-md rounded-2xl p-10"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                  viewport={{ once: true }}
                 >
                   <h3 className="text-2xl font-semibold mb-2">{card.title}</h3>
                   <p className="text-gray-500">{card.content}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
