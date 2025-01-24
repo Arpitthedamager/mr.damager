@@ -40,7 +40,7 @@ const FeatureSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div className="inline-block px-4 py-2 text-sm font-bold tracking-wider uppercase bg-gradient-to-r from-green-400 to-blue-500 rounded-full text-black">
+          <div className="inline-block px-4 py-2 text-sm font-bold tracking-wider uppercase bg-gradient-to-r from-green-400 to-blue-500 rounded-full">
             Working Process
           </div>
           <h2 className="feature-title text-4xl md:text-5xl font-bold mt-4 leading-tight">
