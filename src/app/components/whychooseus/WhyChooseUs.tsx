@@ -16,12 +16,12 @@ const WhyChooseUs = () => {
         stagger: 0.2,
         duration: 1,
         ease: "power2.out",
-        scrollTrigger: {
-          trigger: rightCardsRef.current,
-          start: "top center",
-          end: "bottom center",
-          scrub: true,
-        },
+        // scrollTrigger: {
+        //   trigger: rightCardsRef.current,
+        //   start: "top center",
+        //   end: "bottom center",
+        //   scrub: true,
+        // },
       });
     }
   }, []);
