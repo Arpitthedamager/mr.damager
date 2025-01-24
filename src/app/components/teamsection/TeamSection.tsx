@@ -73,7 +73,7 @@ const TeamSection: React.FC = () => {
     );
   }, []);
 
-  return (
+  return (  
     <section className="our-team-section py-16 text-white relative">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
@@ -88,7 +88,7 @@ const TeamSection: React.FC = () => {
           {teamMembers.map((member, index) => (
             <motion.div
               key={index}
-              className="team-card relative group rounded-xl shadow-lg p-10 text-center flex flex-col items-center w-full max-w-[280px] mx-auto overflow-hidden"
+              className="team-card relative group rounded-xl shadow-lg p-10 text-center flex flex-col items-center w-full md:max-w-[280px] max-w-[380px] mx-auto overflow-hidden"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}

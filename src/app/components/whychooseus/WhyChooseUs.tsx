@@ -35,7 +35,7 @@ const WhyChooseUs = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="w-full md:w-1/2 sticky top-16 self-start"
+            className="w-full md:w-1/2 md:sticky top-16 self-start"
           >
             <div className="text-center md:text-left">
               <div className="inline-block px-4 py-2 mb-6 text-sm font-bold tracking-wider uppercase bg-gradient-to-r from-green-400 to-blue-500 rounded-full">
@@ -92,7 +92,7 @@ const WhyChooseUs = () => {
               ].map((card, index) => (
                 <motion.div
                   key={index}
-                  className="choose-us-right-card bg-wwrcolor shadow-md rounded-2xl p-10"
+                  className="choose-us-right-card bg-wwrcolor rounded-2xl p-10"
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: index * 0.2 }}
