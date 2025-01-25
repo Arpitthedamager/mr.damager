@@ -20,24 +20,16 @@ const CtaSection: React.FC = () => {
             <div className="cta-button-wrap flex justify-center lg:justify-start space-x-4">
               <a
                 href="/contact"
-                className="button-large-with-icon border border-purple-500 text-white py-3 px-6 rounded-3xl flex items-center hover:bg-purple-500 transition"
+                className="relative inline-flex items-center justify-center p-[2px] rounded-full bg-gradient-to-r from-green-400 to-blue-500 text-white transition"
               >
-                <span>Contact Us</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="currentColor"
-                  className="ml-2 w-5 h-5"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17.25 8.75L21 12m0 0l-3.75 3.25M21 12H3"
-                  />
-                </svg>
+                <div className="inline-flex items-center justify-center p-[2px] rounded-full bg-gradient-to-r from-wwrcolor to to-wwrcolor hover:from-green-400  hover:to-blue-500">
+                  <span className="relative  text-white py-3 px-6 rounded-3xl">
+                    Contact Us →
+                  </span>
+               
+                </div>
               </a>
+
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -55,7 +47,7 @@ const CtaSection: React.FC = () => {
 
           {/* Right Section */}
           <motion.div
-            className="cta-right-wrap bg-primary text-white p-6 group rounded-lg lg:w-1/3 shadow-md"
+            className="cta-right-wrap bg-primary text-white p-6 group rounded-3xl lg:w-1/3 shadow-md"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
@@ -71,13 +63,13 @@ const CtaSection: React.FC = () => {
               <input
                 type="email"
                 placeholder="Your Email Address"
-                className="cta-input-field flex-1 border border-gray-600 bg-gray-800 text-white px-4 py-2 rounded-3xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                className="cta-input-field flex-1 border group border-gray-600 bg-gray-800 text-white px-4 py-2 rounded-3xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                 required
               />
-              <motion.div className=" bottom-0 right-1 opacity-100 transition-opacity duration-300 group-hover:opacity-100">
+              <motion.div className="bottom-0 right-1 opacity-100 transition-opacity duration-300 group-hover:opacity-100">
                 <Link href="/about">
-                <div className="flex items-center justify-center w-10 h-10 bg-wwrcolor group-hover:bg-gradient-to-r group-hover:from-green-400 group-hover:to-blue-500 rounded-full transition-all duration-300">
-                <p className="text-3xl text-center text-white">↗</p>
+                  <div className="group flex items-center justify-center w-10 h-10 bg-wwrcolor group-hover:bg-gradient-to-r group-hover:from-green-400 group-hover:to-blue-500 rounded-full transition-all duration-300 transform group-hover:-rotate-45">
+                    <p className="text-3xl text-center text-white">→</p>
                   </div>
                 </Link>
               </motion.div>
