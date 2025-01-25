@@ -67,7 +67,7 @@ const BlogSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className=" mb-12"
           >
-          <div className="inline-block bg-gradient-to-r from-green-400 to-blue-500 text-white text-lg font-bold uppercase px-5 py-2 rounded-full">
+          <div className="inline-block bg-gradient-to-r from-green-400 to-blue-500 text-white text-lg uppercase px-5 py-2 rounded-full">
             Our Blog
           </div>
           <h2 className="text-4xl font-extrabold text-white mt-4">
