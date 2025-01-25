@@ -33,24 +33,36 @@ const WhyChooseUs = () => {
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="w-full md:w-1/2 md:sticky top-16 self-start"
           >
             <div className="text-center md:text-left">
+              {/* Tagline */}
               <div className="inline-block px-4 py-2 mb-6 text-sm font-bold tracking-wider uppercase bg-gradient-to-r from-green-400 to-blue-500 rounded-full">
                 Why Choose Us
               </div>
+
+              {/* Title */}
               <h2 className="text-5xl font-bold mb-6">Why work with us?</h2>
+
+              {/* Description */}
               <p className="text-gray-500 mb-6 text-xl">
                 We deliver results through innovative strategies, transparent
                 communication, and a client-focused approach tailored to your
                 business success.
               </p>
-              <img
+
+              {/* Image */}
+              <motion.img
                 src="https://cdn.prod.website-files.com/6721e220b6b0484ea27da807/6763bb0fea6538644281e363_choose%20image%20(1).png"
                 alt="choose us"
                 className="mx-auto md:mx-0 w-full"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               />
             </div>
           </motion.div>

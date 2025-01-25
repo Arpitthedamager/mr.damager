@@ -29,7 +29,7 @@ const FeatureSection = () => {
   return (
     <section
       ref={progressRef}
-      className="feature-section py-32 bg-wwrcolor text-white relative overflow-hidden"
+      className="feature-section py-32 bg-wwrcolor text-white relative overflow-auto"
     >
       <div className="container mx-auto px-6 md:px-12">
         {/* Header Section */}
@@ -54,21 +54,47 @@ const FeatureSection = () => {
           <div className="absolute w-full h-1 bg-gray-700 top-10 md:top-5 transform -translate-y-1/2 hidden md:block"></div>
 
           {featureData.map((feature, index) => (
-            <div
+            <motion.div
               key={index}
               className="relative flex flex-col items-center text-center mx-4"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
             >
               {/* Feature Number */}
-              <div className="feature-number bg-gradient-to-r from-green-400 to-blue-500 text-white text-xl font-bold rounded-3xl mt-10 md:mt-0 w-12 h-12 flex items-center justify-center z-10">
+              <motion.div
+                className="feature-number bg-gradient-to-r from-green-400 to-blue-500 text-white text-xl font-bold rounded-3xl mt-10 md:mt-0 w-12 h-12 flex items-center justify-center z-10"
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
                 {feature.number}
-              </div>
+              </motion.div>
 
               {/* Text Below */}
               <div className="mt-10">
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-gray-400">{feature.description}</p>
+                <motion.h3
+                  className="text-xl font-semibold mb-2"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                >
+                  {feature.title}
+                </motion.h3>
+                <motion.p
+                  className="text-gray-400"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                >
+                  {feature.description}
+                </motion.p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

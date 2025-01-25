@@ -92,7 +92,10 @@ const PriceCard = () => {
                   }
                 : {}
             }
-            whileHover={{ scale: 1.05 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
           >
             {/* Card Content */}
             <div

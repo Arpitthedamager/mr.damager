@@ -39,7 +39,7 @@ const Homepage: React.FC = () => {
   // }, []);
   return (
     <>
-      {/* <div className="bg-primery-color"> */}
+      <div className="overflow-auto">
 
       <Hero />
       <About />
@@ -56,7 +56,7 @@ const Homepage: React.FC = () => {
       <Cta/>
       <Footer/>
       {/* <DataAnalize/> */}
-      {/* </div> */}
+      </div>
     </>
   );
 };
