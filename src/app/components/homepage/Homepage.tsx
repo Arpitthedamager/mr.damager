@@ -11,29 +11,30 @@ import LogoSlider from "../logoslider/LogoSlider";
 import VideoSection from "../videosection/VideoSection";
 import TeamSection from "../teamsection/TeamSection";
 import Cta from "../cta/CTA";
+import Footer from "../footer/Footer";
 // import DataAnalize from "../dataanalize/DataAnalize";
 
 const Homepage: React.FC = () => {
-  useEffect(() => {
-    // Dynamically import LocomotiveScroll on the client
-    import("locomotive-scroll").then((LocomotiveScrollModule) => {
-      const LocomotiveScroll = LocomotiveScrollModule.default;
+  // useEffect(() => {
+  //   // Dynamically import LocomotiveScroll on the client
+  //   import("locomotive-scroll").then((LocomotiveScrollModule) => {
+  //     const LocomotiveScroll = LocomotiveScrollModule.default;
 
-      const scrollContainer = document.querySelector("[data-scroll-container]");
+  //     const scrollContainer = document.querySelector("[data-scroll-container]");
 
-      if (scrollContainer) {
-        const locomotiveScroll = new LocomotiveScroll({
-          el: scrollContainer as HTMLElement, // Type assertion to ensure TypeScript knows it's not null
-          smooth: true,
-        });
+  //     if (scrollContainer) {
+  //       const locomotiveScroll = new LocomotiveScroll({
+  //         el: scrollContainer as HTMLElement, // Type assertion to ensure TypeScript knows it's not null
+  //         smooth: true,
+  //       });
 
-        // Cleanup on unmount
-        return () => {
-          locomotiveScroll.destroy();
-        };
-      }
-    });
-  }, []);
+  //       // Cleanup on unmount
+  //       return () => {
+  //         locomotiveScroll.destroy();
+  //       };
+  //     }
+  //   });
+  // }, []);
   return (
     <>
       {/* <div className="bg-primery-color"> */}
@@ -49,6 +50,7 @@ const Homepage: React.FC = () => {
       <VideoSection/>
       <TeamSection/>
       <Cta/>
+      <Footer/>
       {/* <DataAnalize/> */}
       {/* </div> */}
     </>
