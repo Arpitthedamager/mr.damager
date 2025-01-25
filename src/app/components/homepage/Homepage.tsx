@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+// import React, { useEffect } from "react";
 import Hero from "../hero/Hero";
 import About from "../about/about";
 import Wwr from "../wwr/Wwr";

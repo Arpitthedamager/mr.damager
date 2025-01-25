@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import Link from "next/link";
 
 const Footer: React.FC = () => {
   useEffect(() => {
@@ -163,9 +164,9 @@ const Footer: React.FC = () => {
         <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
           <p>
             ©2024 All Rights Reserved, Powered By{" "}
-            <a href="/" className="text-blue-400 hover:underline">
+            <Link href="/" className="text-blue-400 hover:underline">
               Mr.damager
-            </a>
+            </Link>
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             {["Licenses", "Style Guide", "Changelog"].map((link) => (
