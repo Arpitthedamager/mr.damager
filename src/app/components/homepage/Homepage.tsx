@@ -12,6 +12,7 @@ import VideoSection from "../videosection/VideoSection";
 import TeamSection from "../teamsection/TeamSection";
 import Cta from "../cta/CTA";
 import Footer from "../footer/Footer";
+import BlogSection from "../blogsection/BlogSection";
 // import DataAnalize from "../dataanalize/DataAnalize";
 
 const Homepage: React.FC = () => {
@@ -49,6 +50,7 @@ const Homepage: React.FC = () => {
       <LogoSlider/>
       <VideoSection/>
       <TeamSection/>
+      <BlogSection/>
       <Cta/>
       <Footer/>
       {/* <DataAnalize/> */}

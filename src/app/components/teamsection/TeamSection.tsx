@@ -77,7 +77,7 @@ const TeamSection: React.FC = () => {
     <section className="our-team-section py-16 text-white relative">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <span className="inline-block bg-gradient-to-r from-green-400 to-blue-500 text-sm px-4 py-1 rounded-full">
+          <span className="inline-block bg-gradient-to-r from-green-400 to-blue-500 text-xl px-5 py-2 rounded-full">
             Our Team
           </span>
           <h1 className="text-4xl font-bold mt-4">
