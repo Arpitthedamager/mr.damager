@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
 
           // Zoom animation
           gsap.to(zoomElement, {
-            scale: isMobile ? 40 : isDesktop ? 2000 : 20,
+            scale: isMobile ? 37 : isDesktop ? 1650 : 20,
             duration: 1,
             scrollTrigger: {
               trigger: containerElement,
@@ -56,7 +56,7 @@ const Hero: React.FC = () => {
             { opacity: 100, y: 100 }, // Start fully visible
             {
               opacity: 0, // Fade out
-              y: -50, // Move slightly upward
+              y: 0, // Move slightly upward
               scrollTrigger: {
                 trigger: containerElement,
                 start: "top 20%", // Trigger starts at the top
@@ -64,10 +64,13 @@ const Hero: React.FC = () => {
                 scrub: true, // Sync with scroll
                 toggleActions: "play reverse play reverse", // Smooth reverse effect
                 onLeaveBack: () => {
-                  gsap.set([headerElement, footerElement, textElement, buttonElement], {
-                    opacity: 1,
-                    y: 0,
-                  });
+                  gsap.set(
+                    [headerElement, footerElement, textElement, buttonElement],
+                    {
+                      opacity: 1,
+                      y: 0,
+                    }
+                  );
                 },
               },
             }
@@ -86,10 +89,9 @@ const Hero: React.FC = () => {
       ref={containerRef}
       className="relative h-screen flex flex-col overflow-hidden text-white"
     >
-      {/* Header Section */}
-      <motion.div
+        <motion.div
         ref={headerRef}
-        className="w-full flex items-center justify-between px-6 md:px-16 py-6"
+        className="w-full flex flex-col md:flex-row top-0 items-center md:justify-between px-6 md:px-16 py-6 gap-4 md:gap-0"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -106,21 +108,25 @@ const Hero: React.FC = () => {
             />
             <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
           </div>
-          <p className="font-medium text-lg">Mr. Damager (Arpit Kumar)</p>
+          <p className="font-medium text-lg text-center md:text-left">
+            Mr. Damager (Arpit Kumar)
+          </p>
         </div>
+        <div className="w-full flex md:flex-row items-center justify-between md:gap-0">
+          {/* Location */}
+          <p className="text-gray-400 text-sm md:text-lg text-center">
+            Agra, India (2025)
+          </p>
 
-        {/* Location */}
-        <p className="text-gray-400 text-lg">Agra, India (2025)</p>
-
-        {/* Contact Button */}
-        <Button
-          text="Let’s talk →"
-          href="/contact"
-          className="px-6 py-2"
-          hoverColor="#0a0a0a"
-        />
+          {/* Contact Button */}
+          <Button
+            text="Let’s talk →"
+            href="/contact"
+            className="px-4 py-2 md:px-6 md:py-2 self-center md:self-auto"
+            hoverColor="#0a0a0a"
+          />
+        </div>
       </motion.div>
-
       {/* Hero Section */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
         <motion.h1

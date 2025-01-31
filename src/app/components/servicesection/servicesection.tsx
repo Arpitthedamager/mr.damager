@@ -23,7 +23,7 @@ const services = [
       "Gain insights, identify opportunities, and outperform competitors with strategic actions.",
     frontIcon: "/path/to/market-icon.png",
     hoverImage:
-      "https://cdn.prod.website-files.com/6721e220b6b0484ea27da807/67222d3fa316129ee25bf031_blackbg.png",
+      "/servises/2.png",
     link: "/service-collection/market-insight",
     hoverTitle: "Market Strategies",
   },
@@ -32,7 +32,7 @@ const services = [
     description:
       "Define your unique value—stand out, connect with customers, and build brand loyalty!",
     frontIcon: "/path/to/brand-icon.png",
-    hoverImage: "/path/to/brand-hover-image.jpg",
+    hoverImage: "/servises/3.png",
     link: "/service-collection/brand-positioning",
     hoverTitle: "Build Your Brand",
   },
@@ -41,7 +41,7 @@ const services = [
     description:
       "Maximize growth with targeted paid ads—drive traffic, increase conversions, and boost sales!",
     frontIcon: "/path/to/ads-icon.png",
-    hoverImage: "/path/to/ads-hover-image.jpg",
+    hoverImage: "/servises/4.png",
     link: "/service-collection/paid-advertising",
     hoverTitle: "Grow With Ads",
   },
@@ -50,7 +50,7 @@ const services = [
     description:
       "Leverage podcasting to build authority, connect with audiences, and expand your reach.",
     frontIcon: "/path/to/podcast-icon.png",
-    hoverImage: "/path/to/podcast-hover-image.jpg",
+    hoverImage: "/servises/5.png",
     link: "/service-collection/podcast-marketing",
     hoverTitle: "Podcast Success",
   },
