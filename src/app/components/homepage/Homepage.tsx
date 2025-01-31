@@ -14,6 +14,7 @@ import Cta from "../cta/CTA";
 import Footer from "../footer/Footer";
 import BlogSection from "../blogsection/BlogSection";
 import Testimonial from "../testimonial/Testimonial";
+import Soc from "../soc/Soc";
 // import DataAnalize from "../dataanalize/DataAnalize";
 
 const Homepage: React.FC = () => {
@@ -40,12 +41,12 @@ const Homepage: React.FC = () => {
   return (
     <>
       <div className="overflow-auto">
-
       <Hero />
       <About />
       <Wwr />
       <ServicesSection/>
       <FeatureSection/>
+      <Soc/>
       <PriceCard/>
       <WhyChooseUs/>
       <LogoSlider/>
@@ -54,6 +55,7 @@ const Homepage: React.FC = () => {
       <Testimonial/>
       <BlogSection/>
       <Cta/>
+
       <Footer/>
       {/* <DataAnalize/> */}
       </div>

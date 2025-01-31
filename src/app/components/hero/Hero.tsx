@@ -36,7 +36,6 @@ const Hero: React.FC = () => {
           isDesktop: "(min-width: 769px)",
         },
         (context: gsap.Context) => {
-          // Check if context.conditions is defined
           const { isMobile, isDesktop } = context.conditions || {};
 
           // Zoom animation
@@ -52,7 +51,6 @@ const Hero: React.FC = () => {
             },
           });
 
-          // Fade-out and fade-in animations for multiple elements
           gsap.fromTo(
             [headerElement, footerElement, textElement, buttonElement],
             { opacity: 100, y: 100 }, // Start fully visible
@@ -66,7 +64,6 @@ const Hero: React.FC = () => {
                 scrub: true, // Sync with scroll
                 toggleActions: "play reverse play reverse", // Smooth reverse effect
                 onLeaveBack: () => {
-                  // Explicitly reset styles when scrolling back to the top
                   gsap.set([headerElement, footerElement, textElement, buttonElement], {
                     opacity: 1,
                     y: 0,
@@ -77,7 +74,6 @@ const Hero: React.FC = () => {
           );
         }
       );
-      // Cleanup GSAP ScrollTrigger and matchMedia
       return () => {
         mm.revert();
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
