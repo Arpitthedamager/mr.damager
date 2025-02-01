@@ -1,4 +1,3 @@
-"use client";
 import React, { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,9 +8,10 @@ gsap.registerPlugin(ScrollTrigger);
 const About: React.FC = () => {
   useEffect(() => {
     // Check if the window width is greater than 768px (desktop view)
-    // Text animations for marketing excellence
     const nameText = document.querySelectorAll(".split-text span");
 
+    // Check if the screen is mobile (less than or equal to 768px)
+    const isMobile = window.innerWidth <= 768;
     gsap.to(nameText[0], {
       x: -150,
       y: -100,
@@ -25,7 +25,8 @@ const About: React.FC = () => {
     });
 
     gsap.to(nameText[1], {
-      y: -150,
+      y:  -150,  
+      x: isMobile ? -70 : 0,    
       rotationZ: -10,
       scrollTrigger: {
         trigger: ".about-section",
@@ -56,10 +57,10 @@ const About: React.FC = () => {
       <div className="text-section ">
         <h2 className="text-4xl font-bold mb-8">
           <span className="split-text inline-block">
-            <span>👋 Hi,</span>
+            <span>👋 Hi, I&apos;m</span>
           </span>{" "}
           <span className="split-text inline-block">
-            <span>I&apos;m Mr.damager</span>
+            <span> Mr.damager</span>
           </span>{" "}
           <span className="split-text inline-block">
             <span>(Arpit Kumar)</span>
