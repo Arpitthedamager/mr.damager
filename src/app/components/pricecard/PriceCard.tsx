@@ -44,7 +44,7 @@ const PriceCard = () => {
   ];
 
   return (
-    <section className="price-card-section text-white py-16 px-6 md:px-12 lg:px-40">
+    <section className="price-card-section text-white py-16 px-6 overflow-auto md:px-12 lg:px-40">
       {/* Header Section */}
       <div className="text-center mb-12">
         <div className="inline-block px-4 py-2 text-sm font-bold tracking-wider uppercase bg-gradient-to-r from-green-400 to-blue-500 rounded-full">

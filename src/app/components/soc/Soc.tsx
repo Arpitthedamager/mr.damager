@@ -23,7 +23,7 @@ const Soc = () => {
     return () => clearInterval(interval);
   }, [cards.length]);
   return (
-    <div className="py-52 z-10 text-white p-8">
+    <div className="py-52 z-10 overflow-auto text-white p-8">
       <h1 className="text-7xl text-center mb-10 px-52 font-extrabold leading-tight ">
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
           Streamlined

@@ -46,7 +46,7 @@ const Homepage: React.FC = () => {
       <Wwr />
       <ServicesSection/>
       <FeatureSection/>
-      <Soc/>
+      {/* <Soc/> */}
       <PriceCard/>
       <WhyChooseUs/>
       <LogoSlider/>
