@@ -14,17 +14,9 @@ const WhyChooseUs = () => {
     if (weekRefs.current.length > 0) {
       weekRefs.current.forEach((weekRef, index) => {
         if (weekRef) {
-          let start = "top 95%";
-          let end = "bottom 50%";
-          // Set different scroll start positions for each week
-          if (index === 0) {
-            start = "top 100%";  // First section starts at 90%
-          } else if (index === 1) {
-            start = "top 55%";  // Second section starts at 75%
-          } else if (index === 2) {
-            start = "top 25%";  // Third section starts at 25%
-          }
-
+          const start = index === 0 ? "top 100%" : index === 1 ? "top 55%" : "top 25%";
+          const end = "bottom 50%";  // End position stays the same for all weeks
+  
           gsap.fromTo(
             weekRef,
             { opacity: 0, y: 50 },
@@ -33,22 +25,23 @@ const WhyChooseUs = () => {
               y: 0,
               scrollTrigger: {
                 trigger: weekRef,
-                start, // Different start positions for each week
+                start,  // Use const variables here
                 end,
                 toggleActions: "play none none none",
-                onEnter: () => setOpenWeek(index), // Set the current week as open when it enters view
-                onLeaveBack: () => setOpenWeek(null), // Close the week when it leaves view
+                onEnter: () => setOpenWeek(index),
+                onLeaveBack: () => setOpenWeek(null),
               },
             }
           );
         }
       });
     }
-
+  
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
+  
 
   const weeks = [
     [
