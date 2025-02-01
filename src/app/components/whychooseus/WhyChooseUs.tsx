@@ -1,27 +1,54 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-import { Draggable } from "gsap/Draggable";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(Draggable);
+gsap.registerPlugin(ScrollTrigger);
 
 const WhyChooseUs = () => {
   const rightCardsRef = useRef<HTMLDivElement>(null);
   const [openWeek, setOpenWeek] = useState<number | null>(null);
+  const weekRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    if (window.innerWidth < 768 && rightCardsRef.current) {
-      Draggable.create(rightCardsRef.current, {
-        type: "x",
-        inertia: true,
-        bounds: rightCardsRef.current.parentElement,
+    if (weekRefs.current.length > 0) {
+      weekRefs.current.forEach((weekRef, index) => {
+        if (weekRef) {
+          let start = "top 95%";
+          let end = "bottom 50%";
+          // Set different scroll start positions for each week
+          if (index === 0) {
+            start = "top 100%";  // First section starts at 90%
+          } else if (index === 1) {
+            start = "top 55%";  // Second section starts at 75%
+          } else if (index === 2) {
+            start = "top 25%";  // Third section starts at 25%
+          }
+
+          gsap.fromTo(
+            weekRef,
+            { opacity: 0, y: 50 },
+            {
+              opacity: 1,
+              y: 0,
+              scrollTrigger: {
+                trigger: weekRef,
+                start, // Different start positions for each week
+                end,
+                toggleActions: "play none none none",
+                onEnter: () => setOpenWeek(index), // Set the current week as open when it enters view
+                onLeaveBack: () => setOpenWeek(null), // Close the week when it leaves view
+              },
+            }
+          );
+        }
       });
     }
-  }, []);
 
-  const toggleWeek = (weekIndex: number) => {
-    setOpenWeek(openWeek === weekIndex ? null : weekIndex);
-  };
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   const weeks = [
     [
@@ -113,33 +140,42 @@ const WhyChooseUs = () => {
             </div>
             <div className="md:hidden">
               {weeks.map((week, weekIndex) => (
-                <div key={weekIndex} className="mb-4">
+                <div
+                  key={weekIndex}
+                  className="mb-4"
+                  ref={(el) => {
+                    weekRefs.current[weekIndex] = el;
+                  }}
+                >
                   <motion.button
-                    onClick={() => toggleWeek(weekIndex)}
-                    className="w-full bg-gray-200 p-4 text-left font-bold"
+                    onClick={() => setOpenWeek(openWeek === weekIndex ? null : weekIndex)}
+                    className="w-full  text-left font-bold"
                     whileTap={{ scale: 0.95 }}
                   >
+                    <hr className="border-white pb-1  border-opacity-100" />
                     Week {weekIndex + 1}
                   </motion.button>
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={openWeek === weekIndex ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
-                    className="overflow-hidden"
-                  >
-                    {week.map((card, index) => (
-                      <motion.div
-                        key={index}
-                        className="bg-wwrcolor rounded-2xl p-4 mt-2"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                      >
-                        <h3 className="text-lg font-semibold">{card.title}</h3>
-                        <p className="text-gray-500">{card.content}</p>
-                      </motion.div>
-                    ))}
-                  </motion.div>
+                  {openWeek === weekIndex && (
+                    <motion.div 
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      {week.map((card, index) => (
+                        <motion.div
+                          key={index}
+                          className="bg-wwrcolor rounded-2xl p-4 mt-2"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: index * 0.1 }}
+                        >
+                          <h3 className="text-lg font-semibold">{card.title}</h3>
+                          <p className="text-gray-500">{card.content}</p>
+                        </motion.div>
+                      ))}
+                    </motion.div>
+                  )}
                 </div>
               ))}
             </div>
