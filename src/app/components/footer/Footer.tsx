@@ -2,7 +2,12 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
-import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaTwitter,
+  FaLinkedinIn,
+} from "react-icons/fa";
 import Link from "next/link";
 
 const Footer: React.FC = () => {
@@ -18,7 +23,11 @@ const Footer: React.FC = () => {
 
   const fadeIn = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
   };
 
   return (
@@ -100,7 +109,7 @@ const Footer: React.FC = () => {
           viewport={{ once: true, amount: 0.8 }}
         >
           <div className="relative z-10">
-          <div className="relative flex justify-center items-center">
+            <div className="relative flex justify-center items-center">
               <img
                 src="https://cdn.prod.website-files.com/6721e220b6b0484ea27da807/674e9d6f5f091e516b57c5da_Group%201171275426.png"
                 alt="Badge Outer"
@@ -138,7 +147,9 @@ const Footer: React.FC = () => {
             <h3 className="text-2xl font-semibold mb-4">Utility</h3>
             {["Licenses", "Style Guide", "Changelog"].map((utility) => (
               <motion.a
-                href={`/utility-page/${utility.toLowerCase().replace(/\s/g, "-")}`}
+                href={`/utility-page/${utility
+                  .toLowerCase()
+                  .replace(/\s/g, "-")}`}
                 className="block text-xl text-gray-300 hover:underline"
                 key={utility}
                 whileHover={{ x: 5 }}
@@ -157,7 +168,11 @@ const Footer: React.FC = () => {
         whileInView="visible"
         variants={{
           hidden: { opacity: 0, y: 50 },
-          visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+          visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.8, ease: "easeOut" },
+          },
         }}
         viewport={{ once: true }}
       >
